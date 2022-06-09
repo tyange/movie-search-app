@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "./App.css";
+import "./styles/App.css";
 import Header from "./components/Header";
 import Movie from "./components/Movie";
 import Search from "./components/Search";
