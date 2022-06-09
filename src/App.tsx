@@ -3,6 +3,7 @@ import "./styles/App.css";
 import Header from "./components/Header";
 import Movie from "./components/Movie";
 import Search from "./components/Search";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const MOVIE_API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=be88a80b";
 
@@ -13,6 +14,8 @@ function App() {
 
   const getMovies = useCallback(async () => {
     try {
+      setIsLoading(true);
+
       const response = await fetch(MOVIE_API_URL);
 
       const responseData = await response.json();
@@ -31,7 +34,7 @@ function App() {
     <div className="App">
       <Header text="HOOKED" />
       <Search />
-      <main></main>
+      <main>{isLoading && !errorMessage && <LoadingSpinner />}</main>
     </div>
   );
 }
